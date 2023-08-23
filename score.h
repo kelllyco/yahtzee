@@ -7,27 +7,33 @@
 
 using namespace std;
 
+// abstract base class for the scores
 class Score
 {
    private:
-      // most important piece of info, holds 
+      // most important piece of info, holds point value for a score
       int pointValue;
 
-      // wont really be needed on backend, but will probably be helpful for frontend
-      string category;
-
+      // bool to indicate if a score has been used, impt if user has to put 0 in a category
       bool hasValue = false;
 
    public:
-      // all just generic getters and setters
+      // point val getter and setter
       void setPointValue(int);
       int getPointValue();
 
-      void setCategory(string);
-      string getCategory();
-
+      // setter and getter for has value
       bool getHasValue();
-      
+      void setHasValue(bool); // default value is true   
+
+      // abstract function
+      virtual int calculateValue() = 0;
+
+};
+
+class Aces : public Score {
+   public:
+      int calculateValue() override;
 
 };
 

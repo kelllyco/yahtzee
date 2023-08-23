@@ -34,7 +34,67 @@ class Score
 class Aces : public Score {
    public:
       int calculateValue() override;
+      const string TYPENAME = "aces";
+};
 
+class Twos : public Score {
+   public:
+      int calculateValue() override;
+      const string TYPENAME = "twos";
+};
+
+class Threes : public Score {
+   public:
+      int calculateValue() override;
+      const string TYPENAME = "threes";
+};
+
+class Fours : public Score {
+   public:
+      int calculateValue() override;
+      const string TYPENAME = "fours";
+};
+
+class Fives : public Score {
+   public:
+      int calculateValue() override;
+      const string TYPENAME = "fives";
+};
+
+class Sixes : public Score {
+   public:
+      int calculateValue() override;
+      const string TYPENAME = "sixes";
+};
+
+class ThreeOfAKind : public Score {
+   public:
+      int calculateValue() override;
+      const string TYPENAME = "three of a kind";
+};
+
+class FourOfAKind : public Score {
+   public:
+      int calculateValue() override;
+      const string TYPENAME = "four of a kind";
+};
+
+class FullHouse : public Score {
+   public:
+      int calculateValue() override;
+      const string TYPENAME = "full house";
+};
+
+class Yahtzee : public Score {
+   public:
+      int calculateValue() override;
+      const string TYPENAME = "yahtzee";
+};
+
+class Chance : public Score {
+   public:
+      int calculateValue() override;
+      const string TYPENAME = "chance";
 };
 
 #endif

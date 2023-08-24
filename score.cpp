@@ -22,5 +22,7 @@ int Score::getPointValue()
    return pointValue;
 }
 
+Aces::Aces(Dice* inArray) : Score() 
+{
 
-
+}

@@ -1,9 +1,10 @@
-#ifndef SCORE
-#define SCORE
+#ifndef SCORE_H
+#define SCORE_H
 
 #include <iostream>
 #include "Dice.h"
-#include "score.h"
+#include "calculator.h"
+
 
 using namespace std;
 
@@ -16,9 +17,6 @@ class Score
 
       // bool to indicate if a score has been used, impt if user has to put 0 in a category
       bool hasValue = false;
-
-      // private member var to hold passed in array of dice
-      Dice* arrayOfDice;
 
    public:
       // point val getter and setter
@@ -39,7 +37,7 @@ class Score
 // they also have their typename, which will never change
 class Aces : public Score {
    public:
-      Aces(*Dice);
+      Aces(Dice*);
 
       int calculateValue() override;
       const string TYPENAME = "aces";
@@ -47,7 +45,7 @@ class Aces : public Score {
 
 class Twos : public Score {
    public:
-      Twos(*Dice);
+      Twos(Dice*);
 
       int calculateValue() override;
       const string TYPENAME = "twos";
@@ -55,7 +53,7 @@ class Twos : public Score {
 
 class Threes : public Score {
    public:
-      Threes(*Dice);
+      Threes(Dice*);
 
       int calculateValue() override;
       const string TYPENAME = "threes";
@@ -63,7 +61,7 @@ class Threes : public Score {
 
 class Fours : public Score {
    public:
-      Fours(*Dice);
+      Fours(Dice*);
 
       int calculateValue() override;
       const string TYPENAME = "fours";
@@ -71,7 +69,7 @@ class Fours : public Score {
 
 class Fives : public Score {
    public:
-      Fives(*Dice);
+      Fives(Dice*);
 
       int calculateValue() override;
       const string TYPENAME = "fives";
@@ -79,7 +77,7 @@ class Fives : public Score {
 
 class Sixes : public Score {
    public:
-      Sixes(*Dice);
+      Sixes(Dice*);
 
       int calculateValue() override;
       const string TYPENAME = "sixes";
@@ -87,7 +85,7 @@ class Sixes : public Score {
 
 class ThreeOfAKind : public Score {
    public:
-      ThreeOfAKind(*Dice);
+      ThreeOfAKind(Dice*);
 
       int calculateValue() override;
       const string TYPENAME = "three of a kind";
@@ -95,7 +93,7 @@ class ThreeOfAKind : public Score {
 
 class FourOfAKind : public Score {
    public:
-      FourOfAKind(*Dice);
+      FourOfAKind(Dice*);
 
       int calculateValue() override;
       const string TYPENAME = "four of a kind";
@@ -103,7 +101,7 @@ class FourOfAKind : public Score {
 
 class FullHouse : public Score {
    public:
-      FullHouse(*Dice);
+      FullHouse(Dice*);
 
       int calculateValue() override;
       const string TYPENAME = "full house";
@@ -111,7 +109,7 @@ class FullHouse : public Score {
 
 class Yahtzee : public Score {
    public:
-      Yahtzee(*Dice);
+      Yahtzee(Dice*);
 
       int calculateValue() override;
       const string TYPENAME = "yahtzee";
@@ -119,8 +117,8 @@ class Yahtzee : public Score {
 
 class Chance : public Score {
    public:
-      Chance(*Dice);
-      
+      Chance(Dice*);
+
       int calculateValue() override;
       const string TYPENAME = "chance";
 };

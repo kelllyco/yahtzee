@@ -1,5 +1,5 @@
-#ifndef CALCULATOR
-#define CALCULATOR
+#ifndef CALCULATOR_H
+#define CALCULATOR_H
 
 #include "Dice.h"
 #include <iostream>

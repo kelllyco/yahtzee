@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include "Dice.h"
-#include "calculator.h"
 
 
 using namespace std;
@@ -17,6 +16,26 @@ class Score
 
       // bool to indicate if a score has been used, impt if user has to put 0 in a category
       bool hasValue = false;
+
+
+   protected:
+      // protected memb var to hold passed in dice array pointer (passed in from child)
+      Dice* arrayOfDice;
+
+      // takes in num to find, returns the value of that num times its occurences in the array
+      int helperSum(int);
+
+      // fills and array that has the number of times each roll shows up, returns nothing
+      void fillCounter();
+
+      // the array that is filled by fillCounter method
+      int counter[6] = {0, 0, 0, 0, 0, 0};
+
+      // clears counter
+      void clearCounter();
+
+      // adds the sum of the dice in the array
+      int addAll();
 
    public:
       // point val getter and setter
@@ -105,6 +124,22 @@ class FullHouse : public Score {
 
       int calculateValue() override;
       const string TYPENAME = "full house";
+};
+
+class SmStraight : public Score {
+   public:
+      SmStraight(Dice*);
+
+      int calculateValue() override;
+      const string TYPENAME = "small straight";
+};
+
+class LgStraight : public Score {
+   public:
+      LgStraight(Dice*);
+
+      int calculateValue() override;
+      const string TYPENAME = "large straight";
 };
 
 class Yahtzee : public Score {

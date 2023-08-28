@@ -13,6 +13,8 @@ class Score
 {
    private:
       // most important piece of info, holds point value for a score
+      // one might ask why i put this here and i put the ISUPPER in the child classes
+      // pride and stubbornness
       int pointValue;
 
       // bool to indicate if a score has been used, impt if user has to put 0 in a category

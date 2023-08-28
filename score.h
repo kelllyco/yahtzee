@@ -49,6 +49,9 @@ class Score
       // setter for the array of dice, for use in the scorecard constructor
       void setArrayOfDice(Dice*);
 
+      // my number one boy moment
+      virtual bool getIsUpper() = 0;
+
       // setter and getter for has value
       bool getHasValue();
       void setHasValue(bool); // default value is true   
@@ -65,78 +68,130 @@ class Aces : public Score {
    public:
       int calculateValue() override;
       const string TYPENAME = "aces";
+      bool getIsUpper() override;
+
+   private:
+      const bool ISUPPER = true; 
 };
 
 class Twos : public Score {
    public:
       int calculateValue() override;
       const string TYPENAME = "twos";
+      bool getIsUpper() override;
+
+   private:
+      const bool ISUPPER = true; 
 };
 
 class Threes : public Score {
    public:
       int calculateValue() override;
       const string TYPENAME = "threes";
+      bool getIsUpper() override;
+
+   private:
+      const bool ISUPPER = true; 
 };
 
 class Fours : public Score {
    public:
       int calculateValue() override;
       const string TYPENAME = "fours";
+      bool getIsUpper() override;
+
+   private:
+      const bool ISUPPER = true; 
 };
 
 class Fives : public Score {
    public:
       int calculateValue() override;
       const string TYPENAME = "fives";
+      bool getIsUpper() override;
+
+   private:
+      const bool ISUPPER = true; 
 };
 
 class Sixes : public Score {
    public:
       int calculateValue() override;
       const string TYPENAME = "sixes";
+      bool getIsUpper() override;
+
+   private:
+      const bool ISUPPER = true; 
 };
 
 class ThreeOfAKind : public Score {
    public:
       int calculateValue() override;
       const string TYPENAME = "three of a kind";
+      bool getIsUpper() override;
+
+   private:
+      const bool ISUPPER = false; 
 };
 
 class FourOfAKind : public Score {
    public:
       int calculateValue() override;
       const string TYPENAME = "four of a kind";
+      bool getIsUpper() override;
+
+   private:
+      const bool ISUPPER = false; 
 };
 
 class FullHouse : public Score {
    public:
       int calculateValue() override;
       const string TYPENAME = "full house";
+      bool getIsUpper() override;
+
+   private:
+      const bool ISUPPER = false; 
 };
 
 class SmStraight : public Score {
    public:
       int calculateValue() override;
       const string TYPENAME = "small straight";
+      bool getIsUpper() override;
+
+   private:
+      const bool ISUPPER = false; 
 };
 
 class LgStraight : public Score {
    public:
       int calculateValue() override;
       const string TYPENAME = "large straight";
+      bool getIsUpper() override;
+
+   private:
+      const bool ISUPPER = false; 
 };
 
 class Yahtzee : public Score {
    public:
       int calculateValue() override;
       const string TYPENAME = "yahtzee";
+      bool getIsUpper() override;
+
+   private:
+      const bool ISUPPER = false; 
 };
 
 class Chance : public Score {
    public:
       int calculateValue() override;
       const string TYPENAME = "chance";
+      bool getIsUpper() override;
+
+   private:
+      const bool ISUPPER = false; 
 };
 
 #endif

@@ -99,10 +99,20 @@ int Aces::calculateValue()
    return helperSum(1);
 }
 
+bool Aces::getIsUpper()
+{
+   return ISUPPER;
+}
+
 int Twos::calculateValue()
 {
    checkNull();
    return helperSum(2);
+}
+
+bool Twos::getIsUpper()
+{
+   return ISUPPER;
 }
 
 int Threes::calculateValue()
@@ -111,10 +121,20 @@ int Threes::calculateValue()
    return helperSum(3);
 }
 
+bool Threes::getIsUpper()
+{
+   return ISUPPER;
+}
+
 int Fours::calculateValue()
 {
    checkNull();
    return helperSum(4);
+}
+
+bool Fours::getIsUpper()
+{
+   return ISUPPER;
 }
 
 int Fives::calculateValue()
@@ -123,10 +143,20 @@ int Fives::calculateValue()
    return helperSum(5);
 }
 
+bool Fives::getIsUpper()
+{
+   return ISUPPER;
+}
+
 int Sixes::calculateValue()
 {
    checkNull();
    return helperSum(6);
+}
+
+bool Sixes::getIsUpper()
+{
+   return ISUPPER;
 }
 
 int ThreeOfAKind::calculateValue()
@@ -146,6 +176,11 @@ int ThreeOfAKind::calculateValue()
    return 0;
 }
 
+bool ThreeOfAKind::getIsUpper()
+{
+   return ISUPPER;
+}
+
 int FourOfAKind::calculateValue()
 {
    checkNull();
@@ -161,6 +196,11 @@ int FourOfAKind::calculateValue()
    }
 
    return 0;
+}
+
+bool FourOfAKind::getIsUpper()
+{
+   return ISUPPER;
 }
 
 int FullHouse::calculateValue()
@@ -206,6 +246,11 @@ int FullHouse::calculateValue()
    return 0;
 }
 
+bool FullHouse::getIsUpper()
+{
+   return ISUPPER;
+}
+
 int SmStraight::calculateValue()
 {
    checkNull();
@@ -230,6 +275,11 @@ int SmStraight::calculateValue()
    }
 }
 
+bool SmStraight::getIsUpper()
+{
+   return ISUPPER;
+}
+
 int LgStraight::calculateValue()
 {
    checkNull();
@@ -250,6 +300,11 @@ int LgStraight::calculateValue()
    }
 }
 
+bool LgStraight::getIsUpper()
+{
+   return ISUPPER;
+}
+
 int Yahtzee::calculateValue()
 {
    checkNull();
@@ -267,9 +322,19 @@ int Yahtzee::calculateValue()
    return 0;
 }
 
+bool Yahtzee::getIsUpper()
+{
+   return ISUPPER;
+}
+
 int Chance::calculateValue()
 {
    checkNull();
    
    return addAll();
+}
+
+bool Chance::getIsUpper()
+{
+   return ISUPPER;
 }

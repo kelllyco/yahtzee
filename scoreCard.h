@@ -7,6 +7,7 @@
 
 #include "Dice.h"
 #include "score.h"
+#include <vector>
 
 class ScoreCard
 {
@@ -24,6 +25,10 @@ class ScoreCard
 
       // returns the score that the passed integer corresponds to
       Score getScoreObj(int);
+
+      // vector of the different child classes of score, honestly inspired by chat gpt we didnt go into polymorphism deep enough for this in class
+      // i did already know about unique pointers, i just hadn't used them...now i might only use them lol
+      vector <unique_ptr<Score>> categories;
 
    public:
       // constructor, takes in array of dice since scorecard has ownership of the score categories and they require that array of dice

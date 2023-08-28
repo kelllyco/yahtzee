@@ -1,8 +1,12 @@
 #include "scoreCard.h"
-#include "calculator.h"
 #include <iostream>
 
-int ScoreCard::bonus = 35;
+ScoreCard::ScoreCard(Dice* inArray)
+{
+   // okay so this should make the vector filled with categories
+   // then this should go through the vector and set each of these's dice array up
+   // should maybe test if catch null is working too rq
+}
 
 int ScoreCard::getUpperTotal()
 {
@@ -32,60 +36,10 @@ int ScoreCard::getUpperWithBonus()
 {
    if (upperTotal > 62)
    {
-      upperTotal += bonus;
+      upperTotal += BONUS;
    }
 
    return upperTotal;
-
-}
-
-// basically just one long switch statement
-Score ScoreCard::getScoreObj(int inNum)
-{
-   switch (inNum)
-   {
-      case 1:
-         return aces;
-         break;
-      case 2:
-         return twos;
-         break;
-      case 3:
-         return threes;
-         break;
-      case 4:
-         return fours;
-         break;
-      case 5:
-         return fives;
-         break;
-      case 6:
-         return sixes;
-         break;
-      case 7:
-         return threeOfAKind;
-         break;
-      case 8:
-         return fourOfAKind;
-         break;
-      case 9:
-         return fullHouse;
-         break;
-      case 10:
-         return smStraight;
-         break;
-      case 11:
-         return lgStraight;
-         break;
-      case 12:
-         return yahtzee;
-         break;
-      case 13:
-         return chance;
-         break;
-      default:
-         cout<<"ERROR IN SWITCH"<<endl;
-   }
 
 }
 

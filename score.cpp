@@ -74,40 +74,65 @@ int Score::addAll()
    return output;
 }
 
+void Score::checkNull()
+{
+   try
+   {
+      if (arrayOfDice == nullptr)
+      {
+         throw runtime_error("cannot calculate values while an array of dice has not been set\ntry using Score's setArrayOfDice if this error is thrown bc you're trying to use score categories outside of scoreCard");
+      }
+   }
+   catch(const std::exception& e)
+   {
+      std::cerr << e.what() << '\n';
+   }
+   
+   
+}
+
 // child class calculate value overrides
 // some of the calcs could use a retool once I learn more *cough* nested for loop in FullHouse *cough*
 int Aces::calculateValue()
 {
+   checkNull();
    return helperSum(1);
 }
 
 int Twos::calculateValue()
 {
+   checkNull();
    return helperSum(2);
 }
 
 int Threes::calculateValue()
 {
+   checkNull();
    return helperSum(3);
 }
 
 int Fours::calculateValue()
 {
+   checkNull();
    return helperSum(4);
 }
 
 int Fives::calculateValue()
 {
+   checkNull();
    return helperSum(5);
 }
 
 int Sixes::calculateValue()
 {
+   checkNull();
    return helperSum(6);
 }
 
 int ThreeOfAKind::calculateValue()
 {
+   checkNull();
+
    fillCounter();
 
    for (int i = 0; i < 6; i++)
@@ -123,6 +148,8 @@ int ThreeOfAKind::calculateValue()
 
 int FourOfAKind::calculateValue()
 {
+   checkNull();
+
    fillCounter();
 
    for (int i = 0; i < 6; i++)
@@ -138,6 +165,8 @@ int FourOfAKind::calculateValue()
 
 int FullHouse::calculateValue()
 {
+   checkNull();
+
    fillCounter();
 
    for (int i = 0; i < 6; i++)
@@ -179,6 +208,8 @@ int FullHouse::calculateValue()
 
 int SmStraight::calculateValue()
 {
+   checkNull();
+
    fillCounter();
 
    if ((counter[0] > 0) && (counter[1] > 0) && (counter[2] > 0) && (counter[3] > 0))
@@ -201,6 +232,8 @@ int SmStraight::calculateValue()
 
 int LgStraight::calculateValue()
 {
+   checkNull();
+
    fillCounter();
 
    if ((counter[0] > 0) && (counter[1] > 0) && (counter[2] > 0) && (counter[3] > 0) && (counter[4] > 0))
@@ -219,6 +252,8 @@ int LgStraight::calculateValue()
 
 int Yahtzee::calculateValue()
 {
+   checkNull();
+
    fillCounter();
 
    for (int i = 0; i < 6; i++)
@@ -234,5 +269,7 @@ int Yahtzee::calculateValue()
 
 int Chance::calculateValue()
 {
+   checkNull();
+   
    return addAll();
 }

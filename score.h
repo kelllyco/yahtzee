@@ -2,6 +2,7 @@
 #define SCORE_H
 
 #include <iostream>
+#include <stdexcept>
 #include "Dice.h"
 
 
@@ -36,6 +37,9 @@ class Score
 
       // adds the sum of the dice in the array
       int addAll();
+
+      // pings if the scores try to calculate values while arrayOfDice is null
+      void checkNull();
 
    public:
       // point val getter and setter

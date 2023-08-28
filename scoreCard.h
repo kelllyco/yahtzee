@@ -5,30 +5,20 @@
 #ifndef SCORECARD
 #define SCORECARD
 
+#include "Dice.h"
 #include "score.h"
 
 class ScoreCard
 {
    private:
-      Score aces;
-      Score twos;
-      Score threes;
-      Score fours;
-      Score fives;
-      Score sixes;
-
-      Score threeOfAKind;
-      Score fourOfAKind;
-      Score fullHouse;
-      Score smStraight;
-      Score lgStraight;
-      Score yahtzee;
-      Score chance;
-
-      static int bonus;
+      const int BONUS = 35;
 
       int upperTotal;
       int lowerTotal;
+
+      // this will not work, but im glad that I realized it now, i need to get rid of my constructors for the score categories,
+      // instead i should give each category that has a function to set the dice array pointer situation up
+      // scoreCards constructor will call this function for each category so its done automatically
 
       int combinedTotal;
 
@@ -36,8 +26,13 @@ class ScoreCard
       Score getScoreObj(int);
 
    public:
+      // constructor, takes in array of dice since scorecard has ownership of the score categories and they require that array of dice
+      ScoreCard(Dice*);
+
       // sets the scores value, returns 0 if fails, 1 if succeeds
       bool setScoreVal(int);
+
+      // basic addition functions, didnt add setters bc automated
       int getUpperTotal();
       int getUpperWithBonus();
       int getLowerTotal();

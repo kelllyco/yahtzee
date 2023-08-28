@@ -40,6 +40,11 @@ void Score::clearCounter()
    }
 }
 
+void Score::setArrayOfDice(Dice* inArray)
+{
+   arrayOfDice = inArray;
+}
+
 int Score::helperSum(int num)
 {
    int output = 0;
@@ -69,21 +74,11 @@ int Score::addAll()
    return output;
 }
 
-// child class constructors and calculate value overrides
+// child class calculate value overrides
 // some of the calcs could use a retool once I learn more *cough* nested for loop in FullHouse *cough*
-Aces::Aces(Dice* inArray) : Score() 
-{
-   arrayOfDice = inArray;
-}
-
 int Aces::calculateValue()
 {
    return helperSum(1);
-}
-
-Twos::Twos(Dice* inArray) : Score() 
-{
-   arrayOfDice = inArray;
 }
 
 int Twos::calculateValue()
@@ -91,19 +86,9 @@ int Twos::calculateValue()
    return helperSum(2);
 }
 
-Threes::Threes(Dice* inArray) : Score() 
-{
-   arrayOfDice = inArray;
-}
-
 int Threes::calculateValue()
 {
    return helperSum(3);
-}
-
-Fours::Fours(Dice* inArray) : Score() 
-{
-   arrayOfDice = inArray;
 }
 
 int Fours::calculateValue()
@@ -111,29 +96,14 @@ int Fours::calculateValue()
    return helperSum(4);
 }
 
-Fives::Fives(Dice* inArray) : Score() 
-{
-   arrayOfDice = inArray;
-}
-
 int Fives::calculateValue()
 {
    return helperSum(5);
 }
 
-Sixes::Sixes(Dice* inArray) : Score() 
-{
-   arrayOfDice = inArray;
-}
-
 int Sixes::calculateValue()
 {
    return helperSum(6);
-}
-
-ThreeOfAKind::ThreeOfAKind(Dice* inArray) : Score() 
-{
-   arrayOfDice = inArray;
 }
 
 int ThreeOfAKind::calculateValue()
@@ -151,11 +121,6 @@ int ThreeOfAKind::calculateValue()
    return 0;
 }
 
-FourOfAKind::FourOfAKind(Dice* inArray) : Score() 
-{
-   arrayOfDice = inArray;
-}
-
 int FourOfAKind::calculateValue()
 {
    fillCounter();
@@ -169,11 +134,6 @@ int FourOfAKind::calculateValue()
    }
 
    return 0;
-}
-
-FullHouse::FullHouse(Dice* inArray) : Score()
-{
-   arrayOfDice = inArray;
 }
 
 int FullHouse::calculateValue()
@@ -217,11 +177,6 @@ int FullHouse::calculateValue()
    return 0;
 }
 
-SmStraight::SmStraight(Dice* inArray) : Score()
-{
-   arrayOfDice = inArray;
-}
-
 int SmStraight::calculateValue()
 {
    fillCounter();
@@ -244,11 +199,6 @@ int SmStraight::calculateValue()
    }
 }
 
-LgStraight::LgStraight(Dice* inArray) : Score()
-{
-   arrayOfDice = inArray;
-}
-
 int LgStraight::calculateValue()
 {
    fillCounter();
@@ -267,11 +217,6 @@ int LgStraight::calculateValue()
    }
 }
 
-Yahtzee::Yahtzee(Dice* inArray) : Score()
-{
-   arrayOfDice = inArray;
-}
-
 int Yahtzee::calculateValue()
 {
    fillCounter();
@@ -285,11 +230,6 @@ int Yahtzee::calculateValue()
    }
 
    return 0;
-}
-
-Chance::Chance(Dice* inArray) : Score()
-{
-   arrayOfDice = inArray;
 }
 
 int Chance::calculateValue()

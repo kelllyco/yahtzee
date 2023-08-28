@@ -42,6 +42,9 @@ class Score
       void setPointValue(int);
       int getPointValue();
 
+      // setter for the array of dice, for use in the scorecard constructor
+      void setArrayOfDice(Dice*);
+
       // setter and getter for has value
       bool getHasValue();
       void setHasValue(bool); // default value is true   
@@ -56,104 +59,78 @@ class Score
 // they also have their typename, which will never change
 class Aces : public Score {
    public:
-      Aces(Dice*);
-
       int calculateValue() override;
       const string TYPENAME = "aces";
 };
 
 class Twos : public Score {
    public:
-      Twos(Dice*);
-
       int calculateValue() override;
       const string TYPENAME = "twos";
 };
 
 class Threes : public Score {
    public:
-      Threes(Dice*);
-
       int calculateValue() override;
       const string TYPENAME = "threes";
 };
 
 class Fours : public Score {
    public:
-      Fours(Dice*);
-
       int calculateValue() override;
       const string TYPENAME = "fours";
 };
 
 class Fives : public Score {
    public:
-      Fives(Dice*);
-
       int calculateValue() override;
       const string TYPENAME = "fives";
 };
 
 class Sixes : public Score {
    public:
-      Sixes(Dice*);
-
       int calculateValue() override;
       const string TYPENAME = "sixes";
 };
 
 class ThreeOfAKind : public Score {
    public:
-      ThreeOfAKind(Dice*);
-
       int calculateValue() override;
       const string TYPENAME = "three of a kind";
 };
 
 class FourOfAKind : public Score {
    public:
-      FourOfAKind(Dice*);
-
       int calculateValue() override;
       const string TYPENAME = "four of a kind";
 };
 
 class FullHouse : public Score {
    public:
-      FullHouse(Dice*);
-
       int calculateValue() override;
       const string TYPENAME = "full house";
 };
 
 class SmStraight : public Score {
    public:
-      SmStraight(Dice*);
-
       int calculateValue() override;
       const string TYPENAME = "small straight";
 };
 
 class LgStraight : public Score {
    public:
-      LgStraight(Dice*);
-
       int calculateValue() override;
       const string TYPENAME = "large straight";
 };
 
 class Yahtzee : public Score {
    public:
-      Yahtzee(Dice*);
-
       int calculateValue() override;
       const string TYPENAME = "yahtzee";
 };
 
 class Chance : public Score {
    public:
-      Chance(Dice*);
-
       int calculateValue() override;
       const string TYPENAME = "chance";
 };

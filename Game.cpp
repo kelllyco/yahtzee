@@ -55,8 +55,7 @@ bool Game::rollAgain()
 
 }
 
-// prompts the user to enter dice, giving instructions and has error checking built in
-void Game::userSelection()
+void Game::selectDice()
 {
    cout<<"Time to add the dice to the cup to be re-rolled!"<<endl<<endl<<"Be sure to enter integer value(s), ex '1 4 5' to have the first, fourth, and fifth dice rolled."<<endl<<endl;
    cout<<"When you've finished adding your dice to the cup, press enter."<<endl;
@@ -83,7 +82,6 @@ void Game::userSelection()
 
 }
 
-// rolls the dice in the cup, outputs what's going on
 void Game::rollAndOutput()
 {
    // rolls the dice that are in the rolling cup
@@ -97,89 +95,4 @@ void Game::rollAndOutput()
    }
 
    cout<<endl;
-}
-
-// returns a number that can be taken in by scorecard which allows the program to know which category the user wants to use the roll for
-int Game::selectCategory()
-{
-   string userCategory;
-
-   int categoryNum = 0;
-
-   cout<<"Which scoring category would you like this turn to count for?\n\nPlease enter the name of the category and then press enter."<<endl;
-   
-   categoryNum = cin.get();
-
-   while (categoryNum == 0)
-   {
-      // goes ahead and makes everything lower
-      for (int i = 0; i < userCategory.size(); i++)
-      {
-         userCategory[i] = tolower(userCategory[i]);
-      }
-
-      // use this branch bc its less dangerous than passing the pointer to the string, even though it does add an extra step
-      // basically just checks for the users input, will ru
-      if (userCategory == "aces")
-      {
-         categoryNum = 1;
-      }
-      else if (userCategory == "twos")
-      {
-         categoryNum = 2;
-      }
-      else if (userCategory == "threes")
-      {
-         categoryNum = 3;
-      }
-      else if (userCategory == "fours")
-      {
-         categoryNum = 4;
-      }
-      else if (userCategory == "fives")
-      {
-         categoryNum = 5;
-      }
-      else if (userCategory == "sixes")
-      {
-         categoryNum = 6;
-      }
-      else if (userCategory == "three of a kind")
-      {
-         categoryNum = 7;
-      }
-      else if (userCategory == "four of a kind")
-      {
-         categoryNum = 8;
-      }
-      else if (userCategory == "full house")
-      {
-         categoryNum = 9;
-      }
-      else if (userCategory == "small straight")
-      {
-         categoryNum = 10;
-      }
-      else if (userCategory == "large straight")
-      {
-         categoryNum = 11;
-      }
-      else if (userCategory == "yahtzee")
-      {
-         categoryNum = 12;
-      }
-      else if (userCategory == "chance")
-      {
-         categoryNum = 13;
-      }
-      else
-      {
-         cout<<"\n The category you entered does not exist. Please try again, and dont forget to check your spelling!"<<endl;
-
-         userCategory = cin.get();
-      }
-   }
-
-   return categoryNum;
-   
 }

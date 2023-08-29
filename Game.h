@@ -2,7 +2,7 @@
 // but i need to do the logic of everything first
 
 // this is why most of the functions in game are pretty stupid, just calling other functions and interacting
-// with the user
+// with the user, all this stuff should be able to be taken over by js really easily
 
 #ifndef GAME
 #define GAME
@@ -13,7 +13,7 @@ class Game {
    private:
       // holder for dicecup pointer
       DiceCup *currentCup = nullptr;
-
+ 
    public:
       // welcomes user
       void welcomeMessage();
@@ -21,15 +21,11 @@ class Game {
       // asks user if wants to roll again
       bool rollAgain();
 
-      // prompts the user to select which category they want their roll to count for
-      // returns a number which corresponds to the category in scorecard
-      int selectCategory();
+      void selectDice();
 
       // rolls the dice in the cup, outputs what's going on
       void rollAndOutput();
 
-      // prompts the user to enter dice, giving instructions and has error checking built in
-      void userSelection();
 
       // constructor for game, has to take in a pointer to the current set of dice being worked with
       Game(DiceCup *);

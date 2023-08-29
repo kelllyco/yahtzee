@@ -19,11 +19,9 @@ class ScoreCard
       int upperTotal;
       int lowerTotal;
 
-      // this will not work, but im glad that I realized it now, i need to get rid of my constructors for the score categories,
-      // instead i should give each category that has a function to set the dice array pointer situation up
-      // scoreCards constructor will call this function for each category so its done automatically
-
       int combinedTotal;
+
+      string currentCategory;
 
       // returns the score that the passed integer corresponds to
       Score getScoreObj(int);

@@ -43,9 +43,6 @@ class Score
       // pings if the scores try to calculate values while arrayOfDice is null
       void checkNull();
 
-      // used in constructors of child classes
-      void setIsUpper(bool);
-
    public:
       // point val getter and setter
       void setPointValue(int);
@@ -64,9 +61,6 @@ class Score
       // abstract function
       virtual int calculateValue() = 0;
 
-      // returns if upper or not, used in secondary calcs
-      bool getIsUpper();
-
 };
 
 // the following are concrete classes for the score class
@@ -74,106 +68,132 @@ class Score
 // they also have their typename, which will never change
 class Aces : public Score {
    public:
-      Aces();
       int calculateValue() override;
       const string TYPENAME = "aces";
+      bool getIsUpper() override;
 
+   private:
+      const bool ISUPPER = true; 
 };
 
 class Twos : public Score {
    public:
-      Twos();
       int calculateValue() override;
       const string TYPENAME = "twos";
+      bool getIsUpper() override;
 
+   private:
+      const bool ISUPPER = true; 
 };
 
 class Threes : public Score {
    public:
-      Threes();
       int calculateValue() override;
       const string TYPENAME = "threes";
+      bool getIsUpper() override;
 
+   private:
+      const bool ISUPPER = true; 
 };
 
 class Fours : public Score {
    public:
-      Fours();
       int calculateValue() override;
       const string TYPENAME = "fours";
- 
+      bool getIsUpper() override;
+
+   private:
+      const bool ISUPPER = true; 
 };
 
 class Fives : public Score {
    public:
-      Fives();
       int calculateValue() override;
       const string TYPENAME = "fives";
+      bool getIsUpper() override;
 
+   private:
+      const bool ISUPPER = true; 
 };
 
 class Sixes : public Score {
    public:
-      Sixes();
       int calculateValue() override;
       const string TYPENAME = "sixes";
+      bool getIsUpper() override;
 
+   private:
+      const bool ISUPPER = true; 
 };
 
 class ThreeOfAKind : public Score {
    public:
-      ThreeOfAKind();
       int calculateValue() override;
       const string TYPENAME = "three of a kind";
+      bool getIsUpper() override;
 
+   private:
+      const bool ISUPPER = false; 
 };
 
 class FourOfAKind : public Score {
    public:
-      FourOfAKind();
       int calculateValue() override;
       const string TYPENAME = "four of a kind";
+      bool getIsUpper() override;
 
+   private:
+      const bool ISUPPER = false; 
 };
 
 class FullHouse : public Score {
    public:
-      FullHouse();
       int calculateValue() override;
       const string TYPENAME = "full house";
+      bool getIsUpper() override;
 
+   private:
+      const bool ISUPPER = false; 
 };
 
 class SmStraight : public Score {
    public:
-      SmStraight();
       int calculateValue() override;
       const string TYPENAME = "small straight";
+      bool getIsUpper() override;
 
+   private:
+      const bool ISUPPER = false; 
 };
 
 class LgStraight : public Score {
    public:
-      LgStraight();
       int calculateValue() override;
       const string TYPENAME = "large straight";
+      bool getIsUpper() override;
 
+   private:
+      const bool ISUPPER = false; 
 };
 
 class Yahtzee : public Score {
    public:
-      Yahtzee();
       int calculateValue() override;
       const string TYPENAME = "yahtzee";
+      bool getIsUpper() override;
 
+   private:
+      const bool ISUPPER = false; 
 };
 
 class Chance : public Score {
    public:
-      Chance();
       int calculateValue() override;
       const string TYPENAME = "chance";
+      bool getIsUpper() override;
 
+   private:
+      const bool ISUPPER = false; 
 };
 
 #endif

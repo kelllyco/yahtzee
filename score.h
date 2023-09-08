@@ -46,7 +46,6 @@ class Score
       void checkNull();
 
       // setters for child class vals
-      void setPointValue(int);
       void setIsUpper(bool);
       void setCategoryName(string);
       
@@ -63,6 +62,7 @@ class Score
       virtual int calculateValue() = 0;
 
       // getters for child class vals
+      void setPointValue(int);
       int getPointValue();
       bool getIsUpper();
       string getCategoryName();

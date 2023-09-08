@@ -13,7 +13,7 @@ void Score::setHasValue(bool inBool = true)
 
 void Score::setPointValue(int inInt)
 {
-   pointValue = inInt;
+   setHasValue();
    hasValue = true;
 }
 

@@ -7,19 +7,19 @@ ScoreCard::ScoreCard(Dice* inArray)
    // then this should go through the vector and set each of these's dice array up
    // should maybe test if catch null is working too rq
 
-   categories.push_back(new Aces);
-   categories.push_back(new Twos);
-   categories.push_back(new Threes);
-   categories.push_back(new Fours);
-   categories.push_back(new Fives);
-   categories.push_back(new Sixes);
-   categories.push_back(new ThreeOfAKind);
-   categories.push_back(new FourOfAKind);
-   categories.push_back(new FullHouse);
-   categories.push_back(new SmStraight);
-   categories.push_back(new LgStraight);
-   categories.push_back(new Yahtzee);
-   categories.push_back(new Chance);
+   categories.push_back(new Aces());
+   categories.push_back(new Twos());
+   categories.push_back(new Threes());
+   categories.push_back(new Fours());
+   categories.push_back(new Fives());
+   categories.push_back(new Sixes());
+   categories.push_back(new ThreeOfAKind());
+   categories.push_back(new FourOfAKind());
+   categories.push_back(new FullHouse());
+   categories.push_back(new SmStraight());
+   categories.push_back(new LgStraight());
+   categories.push_back(new Yahtzee());
+   categories.push_back(new Chance());
 
    // DELETE LATER, TESTING, SHOULD BREAK EVERYTHING
    categories[1]->calculateValue();
@@ -92,8 +92,21 @@ int ScoreCard::getUpperWithBonus()
 
 }
 
-// 
-bool ScoreCard::setScoreVal(int categoryNum)
+bool ScoreCard::attemptSetScore(const string& inStr)
 {
+   for (int i = 0; i < categories.size(); i++)
+   {
+      if (categories[i]->getCategoryName() == inStr)
+      {
+         if (!(categories[i]->getHasValue()))
+         {
+            categories[i]->setPointValue(categories[i]->calculateValue());  
+            return true;
+         }
 
+         return false;
+      }
+   }
+
+   return false;
 }

@@ -36,14 +36,16 @@ class ScoreCard
       // destructor, needed for dynamically allocated mem found in constructor
       ~ScoreCard();
 
-      // sets the scores value, returns 0 if fails, 1 if succeeds
-      bool setScoreVal(int);
-
       // basic addition functions, didnt add setters bc automated
       int getUpperTotal();
       int getUpperWithBonus();
       int getLowerTotal();
       int getCombinedTotal();
+
+      // this takes in the user's desired category
+      // if the category exist and doesn't already have an assigned score, returns true
+      // otherwise, it returns false
+      bool attemptSetScore(const string&);
 
 };
 

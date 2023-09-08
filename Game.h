@@ -8,6 +8,7 @@
 #define GAME
 
 #include "diceCup.h"
+#include "scoreCard.h"
 
 class Game {
    private:
@@ -21,11 +22,14 @@ class Game {
       // asks user if wants to roll again
       bool rollAgain();
 
+      // gets desired dice from user
       void selectDice();
 
       // rolls the dice in the cup, outputs what's going on
       void rollAndOutput();
 
+      // asks user where to add score
+      void whichCategory(ScoreCard);
 
       // constructor for game, has to take in a pointer to the current set of dice being worked with
       Game(DiceCup *);

@@ -4,13 +4,12 @@
 #include "diceCup.h"
 #include "Dice.h"
 
-// constructor for game, has to take in a pointer to the current set of dice being worked with
+
 Game::Game(DiceCup *d)
 {
    currentCup = d;
 }
 
-// just prompts the user
 void Game::welcomeMessage()
 {
    cout<<"Welcome to Yahtzee!\n\nYou know how to play! Just be sure to read the instructions carefully, because if you enter a wonky character, the game might break :)\n\n";
@@ -19,7 +18,6 @@ void Game::welcomeMessage()
 
 }
 
-// determines if user wants to roll again (if thats even possible)
 bool Game::rollAgain()
 {
    // if the dice has been rolled too many times, dont bother with any of this
@@ -95,4 +93,24 @@ void Game::rollAndOutput()
    }
 
    cout<<endl;
+}
+
+void Game::whichCategory(ScoreCard currentPlayer)
+{
+   cout<<"Your turn is now over! Which category would you like to apply your cup of dice to?"<<endl;
+   cout<<"Please type in the category name in all lower case"<<endl;
+
+   string userCategory;
+   getline(cin, userCategory);
+
+   bool validCategory = currentPlayer.attemptSetScore(userCategory);
+
+   while (!validCategory)
+   {
+      cout<<"Invalid category! This could be happening because you entered an incorrect category name, or because you tried to assign a score to a category that already has one."<<endl;
+      cout<<"Please try again below."<<endl;
+
+      getline(cin, userCategory);
+      validCategory = currentPlayer.attemptSetScore(userCategory);
+   }
 }

@@ -1,7 +1,5 @@
 
 ## Yahtzee Simulator: Personal Project
-### Kelly Cochran
-
 
 ### Functionality:
 

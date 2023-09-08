@@ -1,6 +1,5 @@
 
 ## Yahtzee Simulator: Personal Project
-
 ### Functionality:
 
 This simulator allows a player to build upon their Yahtzee skills by allowing the player to play an entire round of Yahtzee.

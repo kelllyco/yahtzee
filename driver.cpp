@@ -19,9 +19,7 @@ int main() {
 
    Game g = Game(d);
 
-   Calculator c((*d).dangerReturnsDiceArrayPtr());
-
-   ScoreCard s;
+   ScoreCard s = ScoreCard(d->dangerReturnsDiceArrayPtr());
 
    g.welcomeMessage();
 
@@ -39,14 +37,15 @@ int main() {
       // if they want to go again, will ask which dice they want to re roll
       if (ctndCurrentTurn)
       {
-         g.userSelection();
+         g.selectDice();
       }
 
    } 
    while (ctndCurrentTurn);
 
    // asks the user which category they want to apply their turn to
-   g.selectCategory();
+   g.whichCategory(s);
+   
    
 
 

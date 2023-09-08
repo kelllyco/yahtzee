@@ -20,6 +20,8 @@ class Score
 
       bool isUpper;
 
+      string typeName;
+
 
    protected:
       // protected memb var to hold passed in dice array pointer (passed in from child)
@@ -43,16 +45,15 @@ class Score
       // pings if the scores try to calculate values while arrayOfDice is null
       void checkNull();
 
-   public:
-      // point val getter and setter
+      // setters for child class vals
       void setPointValue(int);
-      int getPointValue();
+      void setIsUpper(bool);
+      void setCategoryName(string);
+      
 
+   public:
       // setter for the array of dice, for use in the scorecard constructor
       void setArrayOfDice(Dice*);
-
-      // my number one boy moment
-      virtual bool getIsUpper() = 0;
 
       // setter and getter for has value
       bool getHasValue();
@@ -60,6 +61,12 @@ class Score
 
       // abstract function
       virtual int calculateValue() = 0;
+
+      // getters for child class vals
+      int getPointValue();
+      bool getIsUpper();
+      string getCategoryName();
+
 
 };
 
@@ -69,131 +76,79 @@ class Score
 class Aces : public Score {
    public:
       int calculateValue() override;
-      const string TYPENAME = "aces";
-      bool getIsUpper() override;
-
-   private:
-      const bool ISUPPER = true; 
+      Aces();
 };
 
 class Twos : public Score {
    public:
       int calculateValue() override;
-      const string TYPENAME = "twos";
-      bool getIsUpper() override;
-
-   private:
-      const bool ISUPPER = true; 
+      Twos();
 };
 
 class Threes : public Score {
    public:
       int calculateValue() override;
-      const string TYPENAME = "threes";
-      bool getIsUpper() override;
-
-   private:
-      const bool ISUPPER = true; 
+      Threes();
 };
 
 class Fours : public Score {
    public:
       int calculateValue() override;
-      const string TYPENAME = "fours";
-      bool getIsUpper() override;
-
-   private:
-      const bool ISUPPER = true; 
+      Fours();
 };
 
 class Fives : public Score {
    public:
       int calculateValue() override;
-      const string TYPENAME = "fives";
-      bool getIsUpper() override;
-
-   private:
-      const bool ISUPPER = true; 
+      Fives();
 };
 
 class Sixes : public Score {
    public:
       int calculateValue() override;
-      const string TYPENAME = "sixes";
-      bool getIsUpper() override;
-
-   private:
-      const bool ISUPPER = true; 
+      Sixes();
 };
 
 class ThreeOfAKind : public Score {
    public:
       int calculateValue() override;
-      const string TYPENAME = "three of a kind";
-      bool getIsUpper() override;
-
-   private:
-      const bool ISUPPER = false; 
+      ThreeOfAKind();
 };
 
 class FourOfAKind : public Score {
    public:
       int calculateValue() override;
-      const string TYPENAME = "four of a kind";
-      bool getIsUpper() override;
-
-   private:
-      const bool ISUPPER = false; 
+      FourOfAKind();
 };
 
 class FullHouse : public Score {
    public:
       int calculateValue() override;
-      const string TYPENAME = "full house";
-      bool getIsUpper() override;
-
-   private:
-      const bool ISUPPER = false; 
+      FullHouse();
 };
 
 class SmStraight : public Score {
    public:
       int calculateValue() override;
-      const string TYPENAME = "small straight";
-      bool getIsUpper() override;
-
-   private:
-      const bool ISUPPER = false; 
+      SmStraight();
 };
 
 class LgStraight : public Score {
    public:
       int calculateValue() override;
-      const string TYPENAME = "large straight";
-      bool getIsUpper() override;
-
-   private:
-      const bool ISUPPER = false; 
+      LgStraight();
 };
 
 class Yahtzee : public Score {
    public:
       int calculateValue() override;
-      const string TYPENAME = "yahtzee";
-      bool getIsUpper() override;
-
-   private:
-      const bool ISUPPER = false; 
+      Yahtzee();
 };
 
 class Chance : public Score {
    public:
       int calculateValue() override;
-      const string TYPENAME = "chance";
-      bool getIsUpper() override;
-
-   private:
-      const bool ISUPPER = false; 
+      Chance();
 };
 
 #endif

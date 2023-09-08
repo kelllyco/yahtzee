@@ -91,6 +91,26 @@ void Score::checkNull()
    
 }
 
+void Score::setIsUpper(bool inBool)
+{
+   isUpper = inBool;
+}
+
+void Score::setCategoryName(string inString)
+{
+   typeName = inString;
+}
+
+bool Score::getIsUpper()
+{
+   return isUpper;
+}
+
+string Score::getCategoryName()
+{
+   return typeName;
+}
+
 // child class calculate value overrides
 // some of the calcs could use a retool once I learn more *cough* nested for loop in FullHouse *cough*
 int Aces::calculateValue()
@@ -99,9 +119,10 @@ int Aces::calculateValue()
    return helperSum(1);
 }
 
-bool Aces::getIsUpper()
+Aces::Aces()
 {
-   return ISUPPER;
+   setIsUpper(true);
+   setCategoryName("aces");
 }
 
 int Twos::calculateValue()
@@ -110,9 +131,10 @@ int Twos::calculateValue()
    return helperSum(2);
 }
 
-bool Twos::getIsUpper()
+Twos::Twos()
 {
-   return ISUPPER;
+   setIsUpper(true);
+   setCategoryName("twos");
 }
 
 int Threes::calculateValue()
@@ -121,9 +143,10 @@ int Threes::calculateValue()
    return helperSum(3);
 }
 
-bool Threes::getIsUpper()
+Threes::Threes()
 {
-   return ISUPPER;
+   setIsUpper(true);
+   setCategoryName("threes");
 }
 
 int Fours::calculateValue()
@@ -132,9 +155,10 @@ int Fours::calculateValue()
    return helperSum(4);
 }
 
-bool Fours::getIsUpper()
+Fours::Fours()
 {
-   return ISUPPER;
+   setIsUpper(true);
+   setCategoryName("fours");
 }
 
 int Fives::calculateValue()
@@ -143,9 +167,10 @@ int Fives::calculateValue()
    return helperSum(5);
 }
 
-bool Fives::getIsUpper()
+Fives::Fives()
 {
-   return ISUPPER;
+   setIsUpper(true);
+   setCategoryName("fives");
 }
 
 int Sixes::calculateValue()
@@ -154,9 +179,10 @@ int Sixes::calculateValue()
    return helperSum(6);
 }
 
-bool Sixes::getIsUpper()
+Sixes::Sixes()
 {
-   return ISUPPER;
+   setIsUpper(true);
+   setCategoryName("sixes");
 }
 
 int ThreeOfAKind::calculateValue()
@@ -176,9 +202,10 @@ int ThreeOfAKind::calculateValue()
    return 0;
 }
 
-bool ThreeOfAKind::getIsUpper()
+ThreeOfAKind::ThreeOfAKind()
 {
-   return ISUPPER;
+   setIsUpper(false);
+   setCategoryName("three of a kind");
 }
 
 int FourOfAKind::calculateValue()
@@ -198,9 +225,10 @@ int FourOfAKind::calculateValue()
    return 0;
 }
 
-bool FourOfAKind::getIsUpper()
+FourOfAKind::FourOfAKind()
 {
-   return ISUPPER;
+   setIsUpper(false);
+   setCategoryName("four of a kind");
 }
 
 int FullHouse::calculateValue()
@@ -246,9 +274,10 @@ int FullHouse::calculateValue()
    return 0;
 }
 
-bool FullHouse::getIsUpper()
+FullHouse::FullHouse()
 {
-   return ISUPPER;
+   setIsUpper(false);
+   setCategoryName("full house");
 }
 
 int SmStraight::calculateValue()
@@ -275,9 +304,10 @@ int SmStraight::calculateValue()
    }
 }
 
-bool SmStraight::getIsUpper()
+SmStraight::SmStraight()
 {
-   return ISUPPER;
+   setIsUpper(false);
+   setCategoryName("small straight");
 }
 
 int LgStraight::calculateValue()
@@ -300,9 +330,10 @@ int LgStraight::calculateValue()
    }
 }
 
-bool LgStraight::getIsUpper()
+LgStraight::LgStraight()
 {
-   return ISUPPER;
+   setIsUpper(false);
+   setCategoryName("large straight");
 }
 
 int Yahtzee::calculateValue()
@@ -322,9 +353,10 @@ int Yahtzee::calculateValue()
    return 0;
 }
 
-bool Yahtzee::getIsUpper()
+Yahtzee::Yahtzee()
 {
-   return ISUPPER;
+   setIsUpper(false);
+   setCategoryName("yahtzee");
 }
 
 int Chance::calculateValue()
@@ -334,7 +366,8 @@ int Chance::calculateValue()
    return addAll();
 }
 
-bool Chance::getIsUpper()
+Chance::Chance()
 {
-   return ISUPPER;
+   setIsUpper(false);
+   setCategoryName("chance");
 }

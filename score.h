@@ -67,6 +67,9 @@ class Score
       bool getIsUpper();
       string getCategoryName();
 
+      // add this to not have an illegal instruction error!
+      virtual ~Score() = default;
+
 
 };
 

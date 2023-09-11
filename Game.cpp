@@ -3,6 +3,8 @@
 #include "Game.h"
 #include "diceCup.h"
 #include "Dice.h"
+#include <cstdlib>
+#include <unistd.h>
 
 
 Game::Game(DiceCup *d)
@@ -10,57 +12,44 @@ Game::Game(DiceCup *d)
    currentCup = d;
 }
 
-void Game::welcomeMessage()
+void Game::welcomeMessage(const ScoreCard* currentPlayer)
 {
-   cout<<"Welcome to Yahtzee!\n\nYou know how to play! Just be sure to read the instructions carefully, because if you enter a wonky character, the game might break :)\n\n";
+   string junk;
+   system("clear");
+   cout<<"---- Yahtzee ----\n\n";
 
-   cout<<"Alrighty, time to roll the dice for the first time!"<<endl<<endl;
+   cout<<"Yahtzee is a dice game where players roll five dice and aim\nto achieve specific combinations for points. It requires both luck\nand strategic decision making.\n\n";
+
+   cout<<"This simulation of Yahtzee currently only supports one player.\nCheck back soon for updates (or even a computer to play against)!\n\n";
+
+   cout<<"For more information, including the rules of the game,\nplease visit the following link:\nhttps://www.hasbro.com/common/instruct/yahtzee.pdf\n\n";
+
+   cout<<"Please press the return key to continue.\n\n";
+
+   getline(cin, junk);
+   system("clear");
+
+   cout<<"Here's a look at the scoreboard that you'll be filling up.\n\nRemember, to get a bonus, you must have an upper\nsection score of 36 or higher!\n\n";
+
+   currentPlayer->OUTPUTCATEGORIES();
+
+   cout<<"\n\nWhen you're ready to begin the game, press the return key!\n\n";
+   getline(cin, junk);
 
 }
 
-bool Game::rollAgain()
+bool Game::selectDice()
 {
-   // if the dice has been rolled too many times, dont bother with any of this
-   if ((*currentCup).timesRolled > 2)
+   bool continueGame = false;
+
+   if (currentCup->timesRolled > 2)
    {
-      return false;
+      return continueGame;
    }
-   // prompts user
-   cout<<"Are you happy with the results of this roll, or would you like to roll again?\nYou have "<<3 - (*currentCup).timesRolled<<" rolls remaining."<<endl;
-   cout<<"If you would like to roll again, enter 'y' followed by the return key, if not, enter 'n' followed by the return key."<<endl;
-
-   // inits userInput
-   char userInput = ' ';
-
-   cin>>userInput;
-
-   // enters loop and stays in while y or n are not entered
-   while (!((userInput == 'y') || (userInput == 'n')))
-   {
-      cout<<"You entered an invalid choice! Please try again."<<endl;
-      cin>>userInput;
-   }
-
-   fflush(stdin);
-
-   // if the user entered y, return true, otherwise do nothing
-   if (userInput == 'y')
-   {
-      return true;
-   }
-
-   return false;
-
-}
-
-void Game::selectDice()
-{
-   cout<<"Time to add the dice to the cup to be re-rolled!"<<endl<<endl<<"Be sure to enter integer value(s), ex '1 4 5' to have the first, fourth, and fifth dice rolled."<<endl<<endl;
-   cout<<"When you've finished adding your dice to the cup, press enter."<<endl;
-
+   cout<<"\nGreat! To continue, please enter the index of each\ndie you would like to roll again, separated by spaces,\nand press return when you have finished.\n\n";
+   cout<<"If you would like to end your turn here, simply press return.\n\n";
+   
    char charDice;
-
-   cout<<endl<<endl<<"Which number dice would you like to roll? ";
 
    // runs while a newline is not read in
    do {
@@ -74,43 +63,62 @@ void Game::selectDice()
 
          // adds to cup to be rolled
          (*currentCup).addToCup(inDice);
+         continueGame = true;
       }
 
    } while (charDice != '\n');
+
+   cout<<endl;
+   return continueGame;
 
 }
 
 void Game::rollAndOutput()
 {
+   system("clear");
    // rolls the dice that are in the rolling cup
    (*currentCup).roll();
 
    // reads off the current dice info to the user
-   cout<<"Following roll #"<<(*currentCup).timesRolled<<", these are the dice values..."<<endl<<endl;
+   cout<<"--- Roll "<<(*currentCup).timesRolled<<"/3 ---"<<endl<<endl;
    for (int i = 0; i < 5; i++)
    {
-      cout<<"\tThe value of dice #"<<i+1<<" is: "<<(*currentCup).diceArray[i].getCurrentValue()<<endl;
+      cout<<"Dice "<<i+1<<" -- "<<(*currentCup).diceArray[i].getCurrentValue()<<endl;
    }
 
    cout<<endl;
 }
 
-void Game::whichCategory(ScoreCard currentPlayer)
+void Game::whichCategory(ScoreCard* currentPlayer)
 {
-   cout<<"Your turn is now over! Which category would you like to apply your cup of dice to?"<<endl;
-   cout<<"Please type in the category name in all lower case"<<endl;
+   cout<<"Your turn is now over! Enter the lowercase name of the\ncategory you would like to apply this turn to."<<endl<<endl;
 
    string userCategory;
    getline(cin, userCategory);
 
-   bool validCategory = currentPlayer.attemptSetScore(userCategory);
+   bool validCategory = currentPlayer->attemptSetScore(userCategory);
 
    while (!validCategory)
    {
-      cout<<"Invalid category! This could be happening because you entered an incorrect category name, or because you tried to assign a score to a category that already has one."<<endl;
-      cout<<"Please try again below."<<endl;
+      cout<<"\nInvalid category! There are a few reasons that this might be happening:\n\t- You're applying a score to an already used category\n\t- You entered the category name in incorrectly"<<endl<<endl;
+      cout<<"Let's try again below.\n\n";
 
       getline(cin, userCategory);
-      validCategory = currentPlayer.attemptSetScore(userCategory);
+
+      validCategory = currentPlayer->attemptSetScore(userCategory);
    }
+
+   system("clear");
+}
+
+void Game::nextTurn(const ScoreCard* currentPlayer)
+{
+   string junk;
+   cout<<"Here's a look at where things stand following your turn...\n\n\n";
+
+   currentPlayer->OUTPUTCATEGORIES();
+
+   cout<<"Press the return key when you're ready to continue.\n\n";
+   getline(cin, junk);
+   system("clear");
 }

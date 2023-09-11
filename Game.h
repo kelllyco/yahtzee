@@ -17,22 +17,23 @@ class Game {
  
    public:
       // welcomes user
-      void welcomeMessage();
+      void welcomeMessage(const ScoreCard*);
 
-      // asks user if wants to roll again
-      bool rollAgain();
-
-      // gets desired dice from user
-      void selectDice();
+      // gets desired dice from user, returns false if user entered nothing
+      bool selectDice();
 
       // rolls the dice in the cup, outputs what's going on
       void rollAndOutput();
 
       // asks user where to add score
-      void whichCategory(ScoreCard);
+      void whichCategory(ScoreCard*);
+
+      void nextTurn(const ScoreCard*);
 
       // constructor for game, has to take in a pointer to the current set of dice being worked with
       Game(DiceCup *);
+
+
       
 };
 

@@ -110,8 +110,6 @@ bool ScoreCard::attemptSetScore(const string& inStr)
 
 void ScoreCard::OUTPUTCATEGORIES() const
 {
-   cout<<endl<<"--- CURRENT SCORES ---"<<endl<<endl;
-
    cout<<"UPPER SECTION\n";
    for (int i = 0; i < categories.size(); i++)
    {

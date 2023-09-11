@@ -121,4 +121,10 @@ void Game::nextTurn(const ScoreCard* currentPlayer)
    cout<<"Press the return key when you're ready to continue.\n\n";
    getline(cin, junk);
    system("clear");
+   currentCup->resetTimesRolled();
+
+   for (int i = 0; i < 5; i++)
+   {
+      currentCup->addToCup(i);
+   }
 }

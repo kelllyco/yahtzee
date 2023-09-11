@@ -23,9 +23,6 @@ class ScoreCard
 
       string currentCategory;
 
-      // returns the score that the passed integer corresponds to
-      Score getScoreObj(int);
-
       // vector of the different child classes of score, honestly inspired by chat gpt we didnt go into polymorphism deep enough for this in class
       vector <Score*> categories;
 
@@ -41,6 +38,9 @@ class ScoreCard
       int getUpperWithBonus();
       int getLowerTotal();
       int getCombinedTotal();
+
+      // not a permanent thing, but a way for me to see what's going on
+      void OUTPUTCATEGORIES() const;
 
       // this takes in the user's desired category
       // if the category exist and doesn't already have an assigned score, returns true

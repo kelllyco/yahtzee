@@ -21,9 +21,6 @@ ScoreCard::ScoreCard(Dice* inArray)
    categories.push_back(new Yahtzee());
    categories.push_back(new Chance());
 
-   // DELETE LATER, TESTING, SHOULD BREAK EVERYTHING
-   categories[1]->calculateValue();
-
    for (int i = 0; i < categories.size(); i++)
    {
       categories[i]->setArrayOfDice(inArray);
@@ -109,4 +106,30 @@ bool ScoreCard::attemptSetScore(const string& inStr)
    }
 
    return false;
+}
+
+void ScoreCard::OUTPUTCATEGORIES() const
+{
+   cout<<endl<<"--- CURRENT SCORES ---"<<endl<<endl;
+
+   cout<<"UPPER SECTION\n";
+   for (int i = 0; i < categories.size(); i++)
+   {
+      if (i == 6)
+      {
+         cout<<endl<<"LOWER SECTION\n";
+      }
+      cout<<categories[i]->getCategoryName()<<": ";
+      if (categories[i]->getHasValue())
+      {
+         cout<<categories[i]->getPointValue()<<endl;
+      }
+      else
+      {
+         cout<<endl;
+      }
+      
+   }
+
+   cout<<endl;
 }

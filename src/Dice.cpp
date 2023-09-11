@@ -3,7 +3,7 @@
 // it is compiled into a .o file, which allows it to be compiled in the main driver function of the program, allowing the program to use these class members
 
 // imports user defined header file
-#include "Dice.h"
+#include "/Users/kellycochran/Desktop/yahtzee/include/Dice.h"
 //#include "housekeeping.h"
 
 #include <string>

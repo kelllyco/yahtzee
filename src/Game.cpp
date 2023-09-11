@@ -1,8 +1,8 @@
 #include <iostream>
 #include <ctype.h>
-#include "Game.h"
-#include "diceCup.h"
-#include "Dice.h"
+#include "/Users/kellycochran/Desktop/yahtzee/include/Game.h"
+#include "/Users/kellycochran/Desktop/yahtzee/include/diceCup.h"
+#include "/Users/kellycochran/Desktop/yahtzee/include/Dice.h"
 #include <cstdlib>
 #include <unistd.h>
 

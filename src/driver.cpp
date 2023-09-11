@@ -1,9 +1,8 @@
-#include "housekeeping.h"
-#include "diceCup.h"
-#include "Dice.h"
-#include "Game.h"
-#include "scoreCard.h"
-#include "calculator.h"
+#include "/Users/kellycochran/Desktop/yahtzee/include/housekeeping.h"
+#include "/Users/kellycochran/Desktop/yahtzee/include/diceCup.h"
+#include "/Users/kellycochran/Desktop/yahtzee/include/Dice.h"
+#include "/Users/kellycochran/Desktop/yahtzee/include/Game.h"
+#include "/Users/kellycochran/Desktop/yahtzee/include/scoreCard.h"
 
 #include <iostream>
 

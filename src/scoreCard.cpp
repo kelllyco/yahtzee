@@ -1,4 +1,4 @@
-#include "scoreCard.h"
+#include "/Users/kellycochran/Desktop/yahtzee/include/scoreCard.h"
 #include <iostream>
 
 ScoreCard::ScoreCard(Dice* inArray)

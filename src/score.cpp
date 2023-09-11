@@ -1,4 +1,4 @@
-#include "score.h"
+#include "/Users/kellycochran/Desktop/yahtzee/include/score.h"
 
 // getters and setters
 bool Score::getHasValue()

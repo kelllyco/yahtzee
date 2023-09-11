@@ -33,6 +33,8 @@ class Game {
       // constructor for game, has to take in a pointer to the current set of dice being worked with
       Game(DiceCup *);
 
+      void endOfGame(ScoreCard*);
+
 
       
 };

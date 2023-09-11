@@ -33,7 +33,7 @@ void Game::welcomeMessage(const ScoreCard* currentPlayer)
 
    currentPlayer->OUTPUTCATEGORIES();
 
-   cout<<"\n\nWhen you're ready to begin the game, press the return key!\n\n";
+   cout<<"\n\nWhen you're ready to add the dice to the cup and begin the game, press the return key!\n\n";
    getline(cin, junk);
 
 }
@@ -75,7 +75,15 @@ bool Game::selectDice()
 
 void Game::rollAndOutput()
 {
+   //system("clear");
+
+   cout<<"The dice have successfully added to the cup! Press the return\nkey to roll them out and view your results.\n\n";
+
+   string junk;
+   getline(cin, junk);
+
    system("clear");
+
    // rolls the dice that are in the rolling cup
    (*currentCup).roll();
 
@@ -115,16 +123,39 @@ void Game::nextTurn(const ScoreCard* currentPlayer)
 {
    string junk;
    cout<<"Here's a look at where things stand following your turn...\n\n\n";
-
+   cout<<endl<<"--- CURRENT SCORES ---"<<endl<<endl;
    currentPlayer->OUTPUTCATEGORIES();
 
-   cout<<"Press the return key when you're ready to continue.\n\n";
+   cout<<"Press the return key when you're ready to add the dice back to the cup.\n\n";
    getline(cin, junk);
-   system("clear");
    currentCup->resetTimesRolled();
 
    for (int i = 0; i < 5; i++)
    {
       currentCup->addToCup(i);
    }
+}
+
+void Game::endOfGame(ScoreCard* currentPlayer)
+{
+   cout<<endl<<"--- FINAL SCORECARD ---"<<endl<<endl;
+   currentPlayer->OUTPUTCATEGORIES();
+
+   cout<<"UPPER SUBTOTAL:\t"<<currentPlayer->getUpperTotal()<<endl;
+
+   if (currentPlayer->getUpperTotal() > 62)
+   {
+      cout<<"BONUS:\t35"<<endl;
+   }
+   else
+   {
+      cout<<"BONUS:\t0"<<endl;
+   }
+
+   cout<<"UPPER TOTAL:\t"<<currentPlayer->getUpperWithBonus()<<endl;
+   cout<<"LOWER TOTAL:\t"<<currentPlayer->getLowerTotal()<<endl<<endl;
+
+   cout<<"FINAL SCORE:\t"<<currentPlayer->getCombinedTotal()<<endl<<endl;
+   
+
 }

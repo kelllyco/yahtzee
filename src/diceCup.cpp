@@ -102,3 +102,8 @@ void DiceCup::roll()
       cout<<"Rolled too many times, you cant roll more than three times!"<<endl;
    }
 }
+
+void DiceCup::resetTimesRolled()
+{
+   timesRolled = 0;
+}

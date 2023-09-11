@@ -24,6 +24,8 @@ class DiceCup
       void addToCup(int);
       void roll();
 
+      void resetTimesRolled();
+
       Dice* dangerReturnsDiceArrayPtr();
 
 

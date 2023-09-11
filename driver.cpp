@@ -19,66 +19,38 @@ int main() {
 
    Game g = Game(d);
 
-   ScoreCard s = ScoreCard(d->dangerReturnsDiceArrayPtr());
+   ScoreCard *s = new ScoreCard(d->dangerReturnsDiceArrayPtr());
 
-   g.welcomeMessage();
+   g.welcomeMessage(s);
+   bool ctndCurrentTurn;
 
-   bool ctndCurrentTurn = false;
-
-   do
+   for (int i = 0; i < 13; i++)
    {
-      // rolls the dice, lets the user know what the outcome is
-      g.rollAndOutput();
+      ctndCurrentTurn = false;
 
-      // asks the user if they want to roll again, will contintue to ask until they enter the right thing
-      // wont allow the user to roll again if they're out of rolls
-      ctndCurrentTurn = g.rollAgain();
-
-      // if they want to go again, will ask which dice they want to re roll
-      if (ctndCurrentTurn)
+      do
       {
-         g.selectDice();
-      }
+         // rolls the dice, lets the user know what the outcome is
+         g.rollAndOutput();
 
-   } 
-   while (ctndCurrentTurn);
+         ctndCurrentTurn = g.selectDice();
+      } 
+      while (ctndCurrentTurn);
 
-   // asks the user which category they want to apply their turn to
-   g.whichCategory(s);
-   
-   
-
-
-
-   // cout<<"value of aces is: "<<c.calcAces()<<endl;
-   // cout<<"value of twos is: "<<c.calcTwos()<<endl;
-   // cout<<"value of threes is: "<<c.calcThrees()<<endl;
-   // cout<<"value of fours is: "<<c.calcFours()<<endl;
-   // cout<<"value of fives is: "<<c.calcFives()<<endl;
-   // cout<<"value of sixes is: "<<c.calcSixes()<<endl;
-   // cout<<endl;
-   // cout<<"value of three of a kind is: "<<c.calcThreeOfAKind()<<endl;
-   // cout<<"value of four of a kind is: "<<c.calcFourOfAKind()<<endl;
-   // cout<<"value of full house is: "<<c.calcFullHouse()<<endl;
-   // cout<<"value of sm straight is: "<<c.calcSmStraight()<<endl;
-   // cout<<"value of lg straight is: "<<c.calcLgStraight()<<endl;
-   // cout<<"value of yahtzee is: "<<c.calcYahtzee()<<endl;
-   // cout<<"value of chance is: "<<c.calcChance()<<endl;
-   // cout<<endl;
-
-
-   //g.userSelection();
+      // asks the user which category they want to apply their turn to
+      g.whichCategory(s);
+      
+      g.nextTurn(s);
+   }
 
 
 
-   // g.rollAndOutput();
-   // g.userSelection();
-
-   // g.rollAndOutput();
-   // g.userSelection();
    
    delete d;
    d = nullptr;
+
+   delete s;
+   s = nullptr;
    
 
 }

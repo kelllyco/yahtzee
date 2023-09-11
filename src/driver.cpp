@@ -42,6 +42,8 @@ int main() {
       g.nextTurn(s);
    }
 
+   g.endOfGame(s);
+
 
 
    

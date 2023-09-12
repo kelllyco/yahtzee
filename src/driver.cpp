@@ -1,6 +1,5 @@
 #include "/Users/kellycochran/Desktop/yahtzee/include/housekeeping.h"
 #include "/Users/kellycochran/Desktop/yahtzee/include/diceCup.h"
-#include "/Users/kellycochran/Desktop/yahtzee/include/Dice.h"
 #include "/Users/kellycochran/Desktop/yahtzee/include/Game.h"
 #include "/Users/kellycochran/Desktop/yahtzee/include/scoreCard.h"
 
@@ -10,19 +9,26 @@ using namespace std;
 
 int main() {
 
+   // sets the seed
    Housekeeping h;
-
    h.setSeed();
 
-   DiceCup *d = new DiceCup;
+   // dynamically allocates a dicecup obj, which creates dice objs too
+   DiceCup *cupOfDice = new DiceCup;
 
-   Game g = Game(d);
+   // creates a game based off of the current dicecup obj
+   // makes sense bc theres only one cup of dice in the game, everyone shares
+   Game output = Game(cupOfDice);
 
-   ScoreCard *s = new ScoreCard(d->dangerReturnsDiceArrayPtr());
+   // dynamically allocates a scorecard for the player, which also creates scores and categories
+   // takes in dice array ptr so child category calculators know what to calculate
+   ScoreCard *player1 = new ScoreCard(cupOfDice->dangerReturnsDiceArrayPtr());
 
-   g.welcomeMessage(s);
+   // welcomes the player
+   output.welcomeMessage(player1);
    bool ctndCurrentTurn;
 
+   // runs for the amount of turns in a game
    for (int i = 0; i < 13; i++)
    {
       ctndCurrentTurn = false;
@@ -30,28 +36,28 @@ int main() {
       do
       {
          // rolls the dice, lets the user know what the outcome is
-         g.rollAndOutput();
+         output.rollAndOutput();
 
-         ctndCurrentTurn = g.selectDice();
+         ctndCurrentTurn = output.selectDice(); // force returns false if youve had 3 rolls
       } 
       while (ctndCurrentTurn);
 
       // asks the user which category they want to apply their turn to
-      g.whichCategory(s);
+      output.whichCategory(player1);
       
-      g.nextTurn(s);
+      // resets stuff for the next turn
+      output.nextTurn(player1);
    }
 
-   g.endOfGame(s);
-
-
-
+   // puts together and outputs final scores
+   output.endOfGame(player1);
    
-   delete d;
-   d = nullptr;
+   // deallocates dynamically allocated memory
+   delete cupOfDice;
+   cupOfDice = nullptr;
 
-   delete s;
-   s = nullptr;
+   delete player1;
+   player1 = nullptr;
    
 
 }

@@ -1,10 +1,13 @@
-// this file contains the function, constructor, and variable definitions for the card class
+// this file contains the function, constructor, and variable definitions for the dice class
 // it can be included in other files to allow the dice class to be utilized inside of them
+
+// the point of this class is to represent individual dice, its very simple, it just rolls dice and returns their values
 
 #ifndef DICE_H
 #define DICE_H
 
-#include <string>
+#include <ctime>
+#include <cstdlib>
 
 using namespace std;
 
@@ -20,19 +23,8 @@ class Dice
       // Getter for current value
       int getCurrentValue();
 
-      // to string definition, returns current value as a string
-      string stringCurrentValue();
-
    private:
-      // static array definitions
-
-      // is this really the most efficient way to do this? like i know its only 
-      // six ints so it doesnt really matter, but wouldnt each init of a dice create a new
-      // array, even though they're all going to say the same thing?
-
-      // i guess thats why you use destructors lol
-      static string diceStrings[6];
-
+      // stores dice's current value
       int currentValue;
 
 };

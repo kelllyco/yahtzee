@@ -1,5 +1,4 @@
 #include "/Users/kellycochran/Desktop/yahtzee/include/diceCup.h"
-#include "/Users/kellycochran/Desktop/yahtzee/include/Dice.h"
 
 using namespace std;
 

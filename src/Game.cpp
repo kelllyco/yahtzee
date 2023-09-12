@@ -1,11 +1,4 @@
-#include <iostream>
-#include <ctype.h>
 #include "/Users/kellycochran/Desktop/yahtzee/include/Game.h"
-#include "/Users/kellycochran/Desktop/yahtzee/include/diceCup.h"
-#include "/Users/kellycochran/Desktop/yahtzee/include/Dice.h"
-#include <cstdlib>
-#include <unistd.h>
-
 
 Game::Game(DiceCup *d)
 {
@@ -55,11 +48,12 @@ bool Game::selectDice()
    do {
       
       charDice = cin.get();
+      charDice = toupper(charDice);
 
       if (!((charDice == '\n') || (charDice == ' ')))
       {
          // casts the char to an int and accounts for ascii translation
-         int inDice = (static_cast<int>(charDice) - 49);
+         int inDice = (static_cast<int>(charDice) - 65);
 
          // adds to cup to be rolled
          (*currentCup).addToCup(inDice);
@@ -75,8 +69,6 @@ bool Game::selectDice()
 
 void Game::rollAndOutput()
 {
-   //system("clear");
-
    cout<<"The dice have successfully added to the cup! Press the return\nkey to roll them out and view your results.\n\n";
 
    string junk;
@@ -91,7 +83,7 @@ void Game::rollAndOutput()
    cout<<"--- Roll "<<(*currentCup).timesRolled<<"/3 ---"<<endl<<endl;
    for (int i = 0; i < 5; i++)
    {
-      cout<<"Dice "<<i+1<<" -- "<<(*currentCup).diceArray[i].getCurrentValue()<<endl;
+      cout<<"Dice "<<static_cast<char>(i+65)<<" -- "<<(*currentCup).diceArray[i].getCurrentValue()<<endl;
    }
 
    cout<<endl;
@@ -106,6 +98,7 @@ void Game::whichCategory(ScoreCard* currentPlayer)
 
    bool validCategory = currentPlayer->attemptSetScore(userCategory);
 
+   // only enters if first attempt to select a category failed
    while (!validCategory)
    {
       cout<<"\nInvalid category! There are a few reasons that this might be happening:\n\t- You're applying a score to an already used category\n\t- You entered the category name in incorrectly"<<endl<<endl;

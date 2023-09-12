@@ -1,6 +1,5 @@
 #include "/Users/kellycochran/Desktop/yahtzee/include/score.h"
 
-// getters and setters
 bool Score::getHasValue()
 {
    return hasValue;
@@ -113,6 +112,7 @@ string Score::getCategoryName()
 
 // child class calculate value overrides
 // some of the calcs could use a retool once I learn more *cough* nested for loop in FullHouse *cough*
+// there's def a better way to do that lol
 int Aces::calculateValue()
 {
    checkNull();

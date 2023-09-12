@@ -1,10 +1,14 @@
+// The score class is an abstract base class, and it has a derived class for each scoring category in yahtzee
+// Each scoring category has a distinct calculate score function, yet they all share some common helpers/member variable chars,
+// making this group of classes a great canidate to practice polymorphism
+// The objects of this class are scored in a vector in scoreCard
+
 #ifndef SCORE_H
 #define SCORE_H
 
 #include <iostream>
 #include <stdexcept>
 #include "Dice.h"
-
 
 using namespace std;
 
@@ -18,13 +22,16 @@ class Score
       // bool to indicate if a score has been used, impt if user has to put 0 in a category
       bool hasValue = false;
 
+      // bool that indicates if is upper section or not, helpful for final calcs
       bool isUpper;
 
+      // the string that contains the category name of each child class
       string typeName;
 
 
    protected:
-      // protected memb var to hold passed in dice array pointer (passed in from child)
+      // remnant of old calc class, helps helper functions calc values by pointing to the
+      // currently refrenced array of dice
       Dice* arrayOfDice;
 
       // takes in num to find, returns the value of that num times its occurences in the array
@@ -42,7 +49,7 @@ class Score
       // adds the sum of the dice in the array
       int addAll();
 
-      // pings if the scores try to calculate values while arrayOfDice is null
+      // throws exception if the scores try to calculate values while arrayOfDice is null
       void checkNull();
 
       // setters for child class vals
@@ -75,7 +82,7 @@ class Score
 
 // the following are concrete classes for the score class
 // they hold a calculate value function which will be different for each class
-// they also have their typename, which will never change
+// they also have their constructiors, which set isUpper and their category names
 class Aces : public Score {
    public:
       int calculateValue() override;

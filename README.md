@@ -4,7 +4,7 @@
 
 This simulator allows a player to build upon their Yahtzee skills by allowing the player to play an entire round of Yahtzee.
 It bounds players to the classic rules. It also handles all category calculations, so players can focus on the game,
-rather than arithmetic
+rather than arithmetic.
 
 
 ### Purpose:
@@ -20,8 +20,8 @@ is my searching algorithm for the full house scoring category.
 
 ### Future Plans
 
-While I completed this project back in August, I've been going back into it periodically to fix things up/add improvements.
-Below is a partial list of the things I'd like to add to the project as my schedule allows:
+While I completed this project back in August, I've been returning to fix things up and add improvements as my schedule allows.
+Below is a partial list of the things I've been working on adding/improving:
 - Ability to play against a 2nd player
 - Ability to play against a NPC (logic for this built with linear optimizaiton? train a simple ai?)
 - Ability to run on Windows machines, rather than just Mac/Linux
@@ -32,10 +32,5 @@ Below is a partial list of the things I'd like to add to the project as my sched
 
 ### Misc Background Info:
 
-I began this project in July on a different repository. This project has been my first attempt at using Git,
-and, while exploring how Git works, I made some mistakes that made it easier for me to just start scratch from a new repo.
-That's why it looks like I've just recently started working on this project.
-
-I'm fully aware that the terminal UI situation is a little messy, and it could use with more error checking.
-I chose not to spend more time on that because I know that later down the line, I want to build a non-command line based
-UI. I've set myself up pretty well for this by ensuring my frontend and backend are kept in very distinct classes.
+I began this project in early July, and I added it to a different repository at the end of the month. This project has been my
+first attempt at using Git, and, while exploring how Git works, I made some mistakes that made it easier for me to just start scratch from a new repo. That's why my working history on this project is incomplete.

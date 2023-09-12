@@ -1,0 +1,2 @@
+This text file is here to ensure the bin folder is present for users that clone the yahtzee repo.
+Its where makefile stores build files.

@@ -2,7 +2,7 @@
 // it includes the Dice.h file, which has the definitions for these class members
 
 // imports user defined header file
-#include "/Users/kellycochran/Desktop/yahtzee/include/Dice.h"
+#include "../include/Dice.h"
 
 using namespace std;
 

@@ -1,7 +1,7 @@
-#include "/Users/kellycochran/Desktop/yahtzee/include/housekeeping.h"
-#include "/Users/kellycochran/Desktop/yahtzee/include/diceCup.h"
-#include "/Users/kellycochran/Desktop/yahtzee/include/Game.h"
-#include "/Users/kellycochran/Desktop/yahtzee/include/scoreCard.h"
+#include "../include/housekeeping.h"
+#include "../include/diceCup.h"
+#include "../include/Game.h"
+#include "../include/scoreCard.h"
 
 #include <iostream>
 

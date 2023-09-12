@@ -1,4 +1,4 @@
-#include "/Users/kellycochran/Desktop/yahtzee/include/diceCup.h"
+#include "../include/diceCup.h"
 
 DiceCup::DiceCup()
 {

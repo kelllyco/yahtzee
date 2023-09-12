@@ -1,4 +1,4 @@
-#include "/Users/kellycochran/Desktop/yahtzee/include/Game.h"
+#include "../include/Game.h"
 
 Game::Game(DiceCup *d)
 {

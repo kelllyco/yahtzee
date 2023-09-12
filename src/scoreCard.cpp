@@ -1,4 +1,4 @@
-#include "/Users/kellycochran/Desktop/yahtzee/include/scoreCard.h"
+#include "../include/scoreCard.h"
 
 ScoreCard::ScoreCard(Dice* inArray)
 {

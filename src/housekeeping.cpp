@@ -1,4 +1,4 @@
-#include "/Users/kellycochran/Desktop/yahtzee/include/housekeeping.h"
+#include "../include/housekeeping.h"
 
 void Housekeeping::setSeed()
 {

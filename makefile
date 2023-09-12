@@ -5,7 +5,7 @@ compile:
 	g++ src/score.cpp -c -Wall -std=c++11 -o bin/score.o
 	g++ src/scoreCard.cpp -c -Wall -std=c++11 -o bin/scoreCard.o
 	g++ src/Game.cpp -c -Wall -std=c++11 -o bin/Game.o
-	g++ src/driver.cpp bin/Dice.o bin/housekeeping.o bin/diceCup.o bin/Game.o bin/Score.o bin/scoreCard.o -Wall -std=c++11 -o bin/a.out
+	g++ src/driver.cpp bin/Dice.o bin/housekeeping.o bin/diceCup.o bin/Game.o bin/score.o bin/scoreCard.o -Wall -std=c++11 -o bin/a.out
 
 run:
 	./bin/a.out

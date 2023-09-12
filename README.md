@@ -4,7 +4,7 @@
 
 This simulator allows a player to build upon their Yahtzee skills by allowing the player to play an entire round of Yahtzee.
 It bounds players to the classic rules. It also handles all category calculations, so players can focus on the game,
-rather than arithmatic
+rather than arithmetic
 
 
 ### Purpose:
@@ -24,7 +24,7 @@ While I completed this project back in August, I've been going back into it peri
 Below is a partial list of the things I'd like to add to the project as my schedule allows:
 - Ability to play against a 2nd player
 - Ability to play against a NPC (logic for this built with linear optimizaiton? train a simple ai?)
-- Ability to run on Windows machines
+- Ability to run on Windows machines, rather than just Mac/Linux
 - Adding a non-command line UI (probably with JS, but that's still up in the air)
 - Clean up the algorithms behind my calculator functions
 - Add instructions, examples, and test cases to Git for others to easily play

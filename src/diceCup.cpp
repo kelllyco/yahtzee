@@ -1,7 +1,5 @@
 #include "/Users/kellycochran/Desktop/yahtzee/include/diceCup.h"
 
-using namespace std;
-
 DiceCup::DiceCup()
 {
    timesRolled = 0;

@@ -23,10 +23,10 @@ is my searching algorithm for the full house scoring category.
 While I completed this project back in August, I've been going back into it periodically to fix things up/add improvements.
 Below is a partial list of the things I'd like to add to the project as my schedule allows:
 - Ability to play against a 2nd player
-- Ability to play against a NPC (logic for this built with linear optimizaiton?)
+- Ability to play against a NPC (logic for this built with linear optimizaiton? train a simple ai?)
+- Ability to run on Windows machines
 - Adding a non-command line UI (probably with JS, but that's still up in the air)
 - Clean up the algorithms behind my calculator functions
-- I somehow missed that constructors should set member instance variables, so I need to fix that rip
 - Add instructions, examples, and test cases to Git for others to easily play
 
 

@@ -1,3 +1,9 @@
-bin/*
+bin/a.out
+bin/Dice.o
+bin/diceCup.o
+bin/Game.o
+bin/housekeeping.o
+bin/score.o
+bin/scoreCard.o
 .DS_Store
 .vscode/*

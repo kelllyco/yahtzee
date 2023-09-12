@@ -59,6 +59,8 @@ class Score
 
    public:
       // setter for the array of dice, for use in the scorecard constructor
+      // will send the pointer to each category object, giving their calculate functions
+      // what they need to refrence to function
       void setArrayOfDice(Dice*);
 
       // setter and getter for has value

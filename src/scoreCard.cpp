@@ -1,12 +1,7 @@
 #include "/Users/kellycochran/Desktop/yahtzee/include/scoreCard.h"
-#include <iostream>
 
 ScoreCard::ScoreCard(Dice* inArray)
 {
-   // okay so this should make the vector filled with categories
-   // then this should go through the vector and set each of these's dice array up
-   // should maybe test if catch null is working too rq
-
    categories.push_back(new Aces());
    categories.push_back(new Twos());
    categories.push_back(new Threes());
@@ -40,7 +35,7 @@ ScoreCard::~ScoreCard()
 
 int ScoreCard::getUpperTotal()
 {
-   int upperTotal = 0;
+   upperTotal = 0;
 
    for (int i = 0; i < categories.size(); i++)
    {
@@ -56,7 +51,7 @@ int ScoreCard::getUpperTotal()
 
 int ScoreCard::getLowerTotal()
 {
-   int lowerTotal = 0;
+   lowerTotal = 0;
 
    for (int i = 0; i < categories.size(); i++)
    {
@@ -82,7 +77,7 @@ int ScoreCard::getUpperWithBonus()
 {
    if (upperTotal > 62)
    {
-      upperTotal += BONUS;
+      upperTotal += 35;
    }
 
    return upperTotal;
@@ -93,8 +88,10 @@ bool ScoreCard::attemptSetScore(const string& inStr)
 {
    for (int i = 0; i < categories.size(); i++)
    {
+      // if the entered name is a valid cat
       if (categories[i]->getCategoryName() == inStr)
       {
+         // if it doesnt already have a value, go ahead and calc and set one
          if (!(categories[i]->getHasValue()))
          {
             categories[i]->setPointValue(categories[i]->calculateValue());  
